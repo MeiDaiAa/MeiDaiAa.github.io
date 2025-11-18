@@ -1169,7 +1169,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #5de32f;
+  background: #c7fc24;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1544,6 +1544,16 @@ pre .javascript .function {
   text-align: center;
 }
 .use-motion .post-block,
+.use-motion .pagination,
+.use-motion .comments {
+  opacity: 0;
+/* margin-top: 60px;
+      margin-bottom: 60px;
+      padding: 25px;
+      background:rgba(119, 119, 119, 0.9) none repeat scroll !important;
+      -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
+      -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5); */
+}
 .use-motion .pagination,
 .use-motion .comments {
   opacity: 0;
@@ -1962,6 +1972,25 @@ pre .javascript .function {
 }
 #qr p {
   text-align: center;
+}
+.post-body {
+  color: #000;
+}
+.post-body h1,
+.post-body h2,
+.post-body h3,
+.post-body h4,
+.post-body h5,
+.post-body h6 {
+  color: #39c5bb;
+}
+.post-body p a {
+  color: #0593d3;
+  border-bottom: none;
+}
+.post-body p a:hover {
+  color: #0477ab;
+  text-decoration: underline;
 }
 .category-all-page .category-all-title {
   text-align: center;

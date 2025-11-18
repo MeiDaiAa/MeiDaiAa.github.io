@@ -165,6 +165,79 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/18/git%E7%9B%B8%E5%85%B3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://medeah-sky-take-out.oss-cn-beijing.aliyuncs.com/2025/07/07920488-9754-465c-96fb-ddeed52c9a91.png">
+      <meta itemprop="name" content="MeiDaiAa">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="标题">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/11/18/git%E7%9B%B8%E5%85%B3/" class="post-title-link" itemprop="url">git提交相关的问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-11-18 20:09:11 / 修改时间：21:53:49" itemprop="dateCreated datePublished" datetime="2025-11-18T20:09:11+08:00">2025-11-18</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="解决-github-墙问题"><a href="#解决-github-墙问题" class="headerlink" title="解决 github 墙问题"></a>解决 github 墙问题</h1><p>配置 github 代理端口，端口为代理软件的代理端口</p>
+<p>这样提交 github 时使用代理，其他提交的时候正常使用  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.https://github.com.proxy http://127.0.0.1:7897</span><br><span class="line">git config --global https.https://github.com.proxy http://127.0.0.1:7897</span><br></pre></td></tr></table></figure>
+
+<h1 id="git-remote命令"><a href="#git-remote命令" class="headerlink" title="git remote命令"></a>git remote命令</h1><p><strong>git remote</strong> 命令提供了一些用于查看、添加、重命名和删除远程仓库的功能。</p>
+<p>以下是 git remote 命令的常见用法：</p>
+<ul>
+<li><code>git remote</code>：列出当前仓库中已配置的远程仓库。</li>
+<li><code>git remote -v</code>：列出当前仓库中已配置的远程仓库，并显示它们的 URL。</li>
+<li><code>git remote add &lt;remote_name&gt; &lt;remote_url&gt;</code>：添加一个新的远程仓库。指定一个远程仓库的名称和 URL，将其添加到当前仓库中。</li>
+<li><code>git remote rename &lt;old_name&gt; &lt;new_name&gt;</code>：将已配置的远程仓库重命名。</li>
+<li><code>git remote remove &lt;remote_name&gt;</code>：从当前仓库中删除指定的远程仓库。</li>
+<li><code>git remote set-url &lt;remote_name&gt; &lt;new_url&gt;</code>：修改指定远程仓库的 URL。</li>
+<li><code>git remote show &lt;remote_name&gt;</code>：显示指定远程仓库的详细信息，包括 URL 和跟踪分支。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/18/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -299,7 +372,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -350,6 +423,8 @@
   </div>
 
   
+  
+  <script color='57,197,187' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
