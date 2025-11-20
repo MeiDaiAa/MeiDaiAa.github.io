@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":{"type":"default"}},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="问题1：敏感信息上传问题是否解决：❌ 场景：如何在保证代码仓库清洁（不含敏感信息）的同时，让 CI&#x2F;CD 流程中的构建和运行环境获得必要的敏感配置信息。 解决方案：包括 Jenkins、GitHub Actions、GitLab CI、Gitea Actions、ArgoCD、Tekton 等，都提供 内置的 Secrets 管理。 敏感信息不放在 Git 仓库里，而是通过 CI&amp;#x2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2025/11/18/hello-world/index.html">
+<meta property="og:title" content="微服务中遇到的问题">
+<meta property="og:url" content="http://example.com/2025/11/20/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="MeiDaiAa&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="问题1：敏感信息上传问题是否解决：❌ 场景：如何在保证代码仓库清洁（不含敏感信息）的同时，让 CI&#x2F;CD 流程中的构建和运行环境获得必要的敏感配置信息。 解决方案：包括 Jenkins、GitHub Actions、GitLab CI、Gitea Actions、ArgoCD、Tekton 等，都提供 内置的 Secrets 管理。 敏感信息不放在 Git 仓库里，而是通过 CI&amp;#x2">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-11-18T08:11:05.863Z">
-<meta property="article:modified_time" content="2025-11-18T08:11:05.863Z">
+<meta property="article:published_time" content="2025-11-20T12:48:39.010Z">
+<meta property="article:modified_time" content="2025-11-20T13:15:10.165Z">
 <meta property="article:author" content="MeiDaiAa">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2025/11/18/hello-world/">
+<link rel="canonical" href="http://example.com/2025/11/20/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>Hello World | MeiDaiAa's Blog</title>
+  <title>微服务中遇到的问题 | MeiDaiAa's Blog</title>
   
 
 
@@ -171,7 +171,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/18/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/20/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://medeah-sky-take-out.oss-cn-beijing.aliyuncs.com/2025/07/07920488-9754-465c-96fb-ddeed52c9a91.png">
@@ -184,7 +184,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          微服务中遇到的问题
         </h1>
 
         <div class="post-meta">
@@ -193,8 +193,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2025-11-18 16:11:05" itemprop="dateCreated datePublished" datetime="2025-11-18T16:11:05+08:00">2025-11-18</time>
+              <time title="创建时间：2025-11-20 20:48:39 / 修改时间：21:15:10" itemprop="dateCreated datePublished" datetime="2025-11-20T20:48:39+08:00">2025-11-20</time>
             </span>
 
           
@@ -208,19 +209,37 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <h1 id="问题1：敏感信息上传问题"><a href="#问题1：敏感信息上传问题" class="headerlink" title="问题1：敏感信息上传问题"></a>问题1：敏感信息上传问题</h1><p>是否解决：❌</p>
+<p><strong>场景：如何在保证代码仓库清洁（不含敏感信息）的同时，让 CI&#x2F;CD 流程中的构建和运行环境获得必要的敏感配置信息。</strong></p>
+<p><strong>解决方案：<strong>包括 <code>Jenkins</code>、<code>GitHub Actions</code>、<code>GitLab CI</code>、<code>Gitea Actions</code>、<code>ArgoCD</code>、<code>Tekton</code> 等，都提供 <strong>内置的 <code>Secrets </code>管理</strong>。<br> 敏感信息</strong>不放在 Git 仓库里</strong>，而是通过 CI&#x2F;CD 的安全存储能力在运行时注入。</p>
+<p>**PS：**浏览了具体的细节，有两种解决方案</p>
+<ul>
+<li><p>一个方法是使用成熟的中间件</p>
+</li>
+<li><p>还有一个是环境变量：说是<code>jenkins</code>里面可以设置特殊的功能，让<code>jenkins</code>在构建容器的时候将环境变量设置进去，就像平常我们构建容器的时候:</p>
+<blockquote>
+<p>docker run 命令用于创建并启动一个新的容器。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run <span class="selector-attr">[OPTIONS]</span> <span class="selector-tag">IMAGE</span> <span class="selector-attr">[COMMAND]</span> <span class="selector-attr">[ARG...]</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>常用参数说明：</p>
+<ul>
+<li><strong><code>-d</code></strong>: 后台运行容器并返回容器 ID。</li>
+<li><strong><code>-it</code></strong>: 交互式运行容器，分配一个伪终端。</li>
+<li><strong><code>--name</code></strong>: 给容器指定一个名称。</li>
+<li><strong><code>-p</code></strong>: 端口映射，格式为 <code>host_port:container_port</code>。</li>
+<li><strong><code>-v</code></strong>: 挂载卷，格式为 <code>host_dir:container_dir</code>。</li>
+<li><strong><code>--rm</code></strong>: 容器停止后自动删除容器。</li>
+<li><strong><code>--env</code> 或 <code>-e</code></strong>: 设置环境变量。</li>
+<li><strong><code>--network</code></strong>: 指定容器的网络模式。</li>
+<li><strong><code>--restart</code></strong>: 容器的重启策略（如 <code>no</code>、<code>on-failure</code>、<code>always</code>、<code>unless-stopped</code>）。</li>
+<li><strong><code>-u</code></strong>: 指定用户。</li>
+</ul>
+</blockquote>
+<p>里面的 <code>-e</code> 设置环境变量一样，这样系启动的时候就会读取环境变量中的值然后填充。</p>
+<p>不过不知道是不是教程给的<code>jenkins</code>版本太低了导致<code>Jenkins Credentials </code> 插件失效了，导致最终没有完成。💥💥💥</p>
+<p>💔 你敏感就敏感把，我就不提交<code>github</code>了💔</p>
+</li>
+</ul>
 
     </div>
 
@@ -235,10 +254,13 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2025/11/18/git%E7%9B%B8%E5%85%B3/" rel="next" title="git提交相关的问题">
-      git提交相关的问题 <i class="fa fa-chevron-right"></i>
+    <a href="/2025/11/19/Clash%E7%9B%B8%E5%85%B3/" rel="prev" title="Clash相关的问题">
+      <i class="fa fa-chevron-left"></i> Clash相关的问题
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2025/11/20/%E5%B8%B8%E7%94%A8%E5%9B%BE%E6%A0%87/" rel="next" title="常用图标">
+      常用图标 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -298,7 +320,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%981%EF%BC%9A%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E4%B8%8A%E4%BC%A0%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">问题1：敏感信息上传问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">语法</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
