@@ -18,6 +18,34 @@
   --btn-default-hover-color: #222;
   --btn-default-hover-border-color: #222;
 }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body-bg-color: #282828;
+    --content-bg-color: #333;
+    --card-bg-color: #555;
+    --text-color: #ccc;
+    --blockquote-color: #bbb;
+    --link-color: #ccc;
+    --link-hover-color: #eee;
+    --brand-color: #ddd;
+    --brand-hover-color: #ddd;
+    --table-row-odd-bg-color: #282828;
+    --table-row-hover-bg-color: #363636;
+    --menu-item-bg-color: #555;
+    --btn-default-bg: #222;
+    --btn-default-color: #ccc;
+    --btn-default-border-color: #555;
+    --btn-default-hover-bg: #666;
+    --btn-default-hover-color: #ccc;
+    --btn-default-hover-border-color: #666;
+  }
+  img {
+    opacity: 0.75;
+  }
+  img:hover {
+    opacity: 0.9;
+  }
+}
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
@@ -356,36 +384,58 @@ td {
   margin-top: 3px;
 }
 .toggle.toggle-arrow .toggle-line-first {
-  left: 50%;
   top: 2px;
-  transform: rotate(45deg);
+  transform: rotate(-45deg);
   width: 50%;
 }
 .toggle.toggle-arrow .toggle-line-middle {
-  left: 2px;
   width: 90%;
 }
 .toggle.toggle-arrow .toggle-line-last {
-  left: 50%;
   top: -2px;
-  transform: rotate(-45deg);
+  transform: rotate(45deg);
   width: 50%;
 }
 .toggle.toggle-close .toggle-line-first {
-  transform: rotate(-45deg);
   top: 5px;
+  transform: rotate(-45deg);
 }
 .toggle.toggle-close .toggle-line-middle {
   opacity: 0;
 }
 .toggle.toggle-close .toggle-line-last {
-  transform: rotate(45deg);
   top: -5px;
+  transform: rotate(45deg);
+}
+.highlight-container {
+  position: relative;
+}
+.highlight-container:hover .copy-btn,
+.highlight-container .copy-btn:focus {
+  opacity: 1;
+}
+.copy-btn {
+  color: #333;
+  cursor: pointer;
+  line-height: 1.6;
+  opacity: 0;
+  padding: 2px 6px;
+  position: absolute;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  background-color: #eee;
+  background-image: linear-gradient(#fcfcfc, #eee);
+  border: 1px solid #d5d5d5;
+  border-radius: 3px;
+  font-size: 0.8125em;
+  right: 4px;
+  top: 8px;
 }
 .highlight,
 pre {
-  background: #f7f7f7;
-  color: #4d4d4c;
+  background: #002b36;
+  color: #93a1a1;
   line-height: 1.6;
   margin: 0 auto 20px;
 }
@@ -402,7 +452,7 @@ code {
   word-wrap: break-word;
 }
 .highlight *::selection {
-  background: #d6d6d6;
+  background: #073642;
 }
 .highlight pre {
   border: 0;
@@ -419,8 +469,8 @@ code {
   padding: 0;
 }
 .highlight figcaption {
-  background: #eff2f3;
-  color: #4d4d4c;
+  background: #002b36;
+  color: #93a1a1;
   display: flex;
   font-size: 0.875em;
   justify-content: space-between;
@@ -428,10 +478,10 @@ code {
   padding: 0.5em;
 }
 .highlight figcaption a {
-  color: #4d4d4c;
+  color: #93a1a1;
 }
 .highlight figcaption a:hover {
-  border-bottom-color: #4d4d4c;
+  border-bottom-color: #93a1a1;
 }
 .highlight .gutter {
   -moz-user-select: none;
@@ -440,14 +490,14 @@ code {
   user-select: none;
 }
 .highlight .gutter pre {
-  background: #eff2f3;
-  color: #869194;
+  background: #002b36;
+  color: #586e75;
   padding-left: 10px;
   padding-right: 10px;
   text-align: right;
 }
 .highlight .code pre {
-  background: #f7f7f7;
+  background: #002b36;
   padding-left: 10px;
   width: 100%;
 }
@@ -463,26 +513,26 @@ pre {
 }
 pre code {
   background: none;
-  color: #4d4d4c;
+  color: #93a1a1;
   font-size: 0.875em;
   padding: 0;
   text-shadow: none;
 }
 pre .deletion {
-  background: #fdd;
+  background: #800000;
 }
 pre .addition {
-  background: #dfd;
+  background: #008000;
 }
 pre .meta {
-  color: #eab700;
+  color: #b58900;
   -moz-user-select: none;
   -ms-user-select: none;
   -webkit-user-select: none;
   user-select: none;
 }
 pre .comment {
-  color: #8e908c;
+  color: #586e75;
 }
 pre .variable,
 pre .attribute,
@@ -497,7 +547,7 @@ pre .html .doctype,
 pre .css .id,
 pre .css .class,
 pre .css .pseudo {
-  color: #c82829;
+  color: #dc322f;
 }
 pre .number,
 pre .preprocessor,
@@ -507,7 +557,7 @@ pre .literal,
 pre .params,
 pre .constant,
 pre .command {
-  color: #f5871f;
+  color: #cb4b16;
 }
 pre .ruby .class .title,
 pre .css .rules .attribute,
@@ -520,11 +570,11 @@ pre .ruby .symbol,
 pre .xml .cdata,
 pre .special,
 pre .formula {
-  color: #718c00;
+  color: #859900;
 }
 pre .title,
 pre .css .hexcolor {
-  color: #3e999f;
+  color: #2aa198;
 }
 pre .function,
 pre .python .decorator,
@@ -534,11 +584,11 @@ pre .ruby .title .keyword,
 pre .perl .sub,
 pre .javascript .title,
 pre .coffeescript .title {
-  color: #4271ae;
+  color: #268bd2;
 }
 pre .keyword,
 pre .javascript .function {
-  color: #8959a8;
+  color: #6c71c4;
 }
 .blockquote-center {
   border-left: none;
@@ -1169,7 +1219,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #49ffbd;
+  background: #13ffff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1511,6 +1561,16 @@ pre .javascript .function {
     left: 20px;
     opacity: 0.8;
   }
+}
+.reading-progress-bar {
+  background: #39c5bb;
+  display: block;
+  height: 3px;
+  left: 0;
+  position: fixed;
+  width: 0;
+  z-index: 1500;
+  top: 0;
 }
 .post-body {
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -2352,10 +2412,24 @@ embed {
   display: inline-block;
 }
 .sidebar {
-  left: -320px;
+  right: -320px;
 }
 .sidebar.sidebar-active {
-  left: 0;
+  right: 0;
+}
+.sidebar-toggle,
+.back-to-top {
+  left: auto;
+  right: 30px;
+}
+@media (max-width: 991px) {
+  .sidebar-toggle,
+  .back-to-top {
+    right: 20px;
+  }
+}
+.book-mark-link {
+  left: 30px;
 }
 .sidebar {
   width: 320px;
@@ -2386,120 +2460,85 @@ embed {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-/* ===========================================
-   NexT 全站深色主题完整增强样式（一步到位）
-   =========================================== */
-/* ====== 1. 全站文字颜色 ====== */
-body,
-.post-body,
-.post-body p,
-.post-body li,
-.post-body span {
-  color: #e5e5e5 !important; /* 柔和的浅灰白 */
+body {
+  background: url("https://meidaia-java-web-study.oss-cn-beijing.aliyuncs.com/miku861.png") no-repeat center center fixed;
+  background-size: cover;
 }
-/* ====== 2. 标题颜色 ====== */
-.post-title,
+.main-inner,
+.content-wrap,
+.post-body,
+p,
+li,
+span,
+.tag-cloud-list-n {
+  color: #eee !important;
+}
+::selection {
+  background: #39c5bb;
+  color: #fff;
+}
+.posts-expand .post-title,
+.posts-expand .post-title-link,
 .post-body h1,
 .post-body h2,
 .post-body h3,
 .post-body h4,
 .post-body h5,
 .post-body h6 {
-  color: #39c5bb !important; /* 你指定的绿色 */
+  color: #39c5bb !important;
+  font-weight: bold;
+  border-bottom: none !important;
 }
-/* ====== 3. 链接颜色 ====== */
-.post-body a {
-  color: #4aa3ff !important;
-  text-decoration: none;
+a,
+span.exturl {
+  color: #39c5bb !important;
+  border-bottom: none;
 }
-.post-body a:hover {
-  color: #77baff !important;
-  text-decoration: underline;
+a:hover,
+span.exturl:hover {
+  color: #ff7675 !important;
+  border-bottom-color: #ff7675;
 }
-/* ====== 4. 引用块 ====== */
-blockquote {
-  color: #ccc !important;
-  border-left: 4px solid #39c5bb !important;
-  background: rgba(255,255,255,0.03) !important;
-}
-/* ====== 5. 表格 ====== */
-table th,
-table td {
-  border: 1px solid #444 !important;
-}
-table tr:nth-child(odd) {
-  background: rgba(255,255,255,0.03);
-}
-table tr:nth-child(even) {
-  background: rgba(255,255,255,0.06);
-}
-table th {
-  background: #2a2a2a !important;
-  color: #fff !important;
-}
-/* ====== 6. 行内代码块（`code`） ====== */
-.post-body code {
-  background: #333 !important;
-  color: #ffdf8e !important; /* 类似 VS Code 的浅黄 */
-  padding: 2px 4px;
-  border-radius: 4px;
-}
-/* ====== 7. 多行代码块（Highlight） ====== */
-.highlight,
-pre,
-code {
-  background: #1e1e1e !important; /* VSCode 暗色背景 */
-  color: #dcdcdc !important;
-  border-radius: 8px;
-}
-pre {
-  padding: 14px !important;
-  border: 1px solid #333 !important;
-}
-/* 行号 */
-.highlight .gutter {
-  color: #666 !important;
-}
-/* 代码块中的关键字、字符串、高亮 */
-.highlight .keyword {
-  color: #c586c0 !important;
-}
-.highlight .string {
-  color: #ce9178 !important;
-}
-.highlight .number {
-  color: #b5cea8 !important;
-}
-.highlight .comment {
-  color: #6a9955 !important;
-}
-/* ====== 8. 图片边框（可选） ====== */
-.post-body img {
-  border-radius: 8px;
-  border: 1px solid #333;
-}
-/* ====== 9. 分割线 ====== */
-hr {
-  border: none;
-  border-top: 1px solid #444 !important;
-}
-body {
-  background: url("https://meidaia-java-web-study.oss-cn-beijing.aliyuncs.com/miku861.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 50% 50%;
-}
-.use-motion .post-block {
-  opacity: 0;
-  margin-top: 60px;
-  margin-bottom: 60px;
+.post-block,
+.sidebar-inner,
+.header-inner {
+  background: rgba(20,20,20,0.35) !important;
   padding: 25px;
-  background: rgba(0,0,0,0.18) none repeat scroll !important;
-  -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
-  -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  margin-bottom: 24px;
+  backdrop-filter: blur(3px);
 }
-.use-motion .pagination,
-.use-motion .comments {
-  opacity: 0;
+.highlight {
+  background: rgba(0,0,0,0.3) !important;
+  border: 1px solid #39c5bb !important;
+  border-radius: 6px;
+  margin: 0 !important;
+  padding: 0;
+  color: #e6e6e6 !important;
+  backdrop-filter: blur(3px);
+}
+.highlight table,
+.highlight tr {
+  background: transparent !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: auto !important;
+}
+.highlight td {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+.copy-btn {
+  background: rgba(255,255,255,0.1) !important;
+  color: #39c5bb !important;
+  border: 1px solid rgba(57,197,187,0.5) !important;
+}
+code {
+  background: rgba(57,197,187,0.2) !important;
+  color: #39c5bb !important;
+  padding: 2px 5px;
+  border-radius: 3px;
 }
