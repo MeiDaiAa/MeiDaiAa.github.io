@@ -21,9 +21,9 @@
   </script>
 
   <meta property="og:type" content="website">
-<meta property="og:title" content="标题">
+<meta property="og:title" content="MeiDaiAa&#39;s Blog">
 <meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="标题">
+<meta property="og:site_name" content="MeiDaiAa&#39;s Blog">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="MeiDaiAa">
 <meta name="twitter:card" content="summary">
@@ -41,7 +41,7 @@
   };
 </script>
 
-  <title>标题</title>
+  <title>MeiDaiAa's Blog</title>
   
 
 
@@ -92,7 +92,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">标题</h1>
+      <h1 class="site-title">MeiDaiAa's Blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -174,7 +174,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="标题">
+      <meta itemprop="name" content="MeiDaiAa's Blog">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -249,7 +249,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="标题">
+      <meta itemprop="name" content="MeiDaiAa's Blog">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -263,10 +263,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2025-11-18 20:09:11 / 修改时间：21:53:49" itemprop="dateCreated datePublished" datetime="2025-11-18T20:09:11+08:00">2025-11-18</time>
+              <time title="创建时间：2025-11-18 20:09:11" itemprop="dateCreated datePublished" datetime="2025-11-18T20:09:11+08:00">2025-11-18</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-11-20 14:15:50" itemprop="dateModified" datetime="2025-11-20T14:15:50+08:00">2025-11-20</time>
+              </span>
 
           
 
@@ -283,6 +289,16 @@
 <p>这样提交 github 时使用代理，其他提交的时候正常使用  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.https://github.com.proxy http://127.0.0.1:7897</span><br><span class="line">git config --global https.https://github.com.proxy http://127.0.0.1:7897</span><br></pre></td></tr></table></figure>
 
+<h1 id="同时提交两个远端仓库"><a href="#同时提交两个远端仓库" class="headerlink" title="同时提交两个远端仓库"></a>同时提交两个远端仓库</h1><p>如果你有两个远端仓库，一个时内部私服的仓库，一个时 github 的仓库，你想一次提交，让提交信息同步到两个远端仓库，代码如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 添加第一个仓库 (私有仓库) 命名为 all</span></span><br><span class="line">git remote add all http://192.168.150.101:10880/tjxt/tianji.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 向 &#x27;all&#x27; 添加第二个仓库 (GitHub)，并指定这是用于 push 的</span></span><br><span class="line">git remote set-url --add --push all https://github.com/MeiDaiAa/tjxt.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 再次向 &#x27;all&#x27; 添加第一个仓库 (确保 push 时也包含私有仓库)</span></span><br><span class="line">git remote set-url --add --push all http://192.168.150.101:10880/tjxt/tianji.git</span><br></pre></td></tr></table></figure>
+
+<p>提交的时候</p>
+<ul>
+<li><p>如果时 idea 就选择 all 仓库名称直接提交</p>
+</li>
+<li><p>如果时命令行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push all dev(如果是其他分支填其他名称)</span><br></pre></td></tr></table></figure></li>
+</ul>
 <h1 id="git-remote命令"><a href="#git-remote命令" class="headerlink" title="git remote命令"></a>git remote命令</h1><p><strong>git remote</strong> 命令提供了一些用于查看、添加、重命名和删除远程仓库的功能。</p>
 <p>以下是 git remote 命令的常见用法：</p>
 <ul>
@@ -294,6 +310,49 @@
 <li><code>git remote set-url &lt;remote_name&gt; &lt;new_url&gt;</code>：修改指定远程仓库的 URL。</li>
 <li><code>git remote show &lt;remote_name&gt;</code>：显示指定远程仓库的详细信息，包括 URL 和跟踪分支。</li>
 </ul>
+<h1 id="提交GitHub包含敏感信息问题"><a href="#提交GitHub包含敏感信息问题" class="headerlink" title="提交GitHub包含敏感信息问题"></a>提交GitHub包含敏感信息问题</h1><p>提交GitHub时，即使当前最新版本没有敏感信息（阿里云key、token 腾讯云key…）已经把敏感信息删除了，但是历史提交中包含了敏感信息。</p>
+<p><strong>GitHub 的 Push Protect&#x2F;on 机制不仅检查当前代码，还会扫描你提交的所有历史记录（Commit History）。</strong> </p>
+<p>即使你现在的代码里已经删除了这些 Key，只要它们存在于 Git 的历史版本中，GitHub 就会拦截推送，以防止泄露。</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><ol>
+<li><p>在执行任何操作前，把整个项目文件夹（包含 <code>.git</code> 目录）复制一份到别处备份。</p>
+</li>
+<li><p>下载 BFG</p>
+<ul>
+<li>下载地址：<a target="_blank" rel="noopener" href="https://rtyley.github.io/bfg-repo-cleaner/">https://rtyley.github.io/bfg-repo-cleaner/</a></li>
+<li>下载好的 <code>bfg-x.x.x.jar</code> 放到你的项目根目录 <code>C:\Users\meida\IdeaProjects\tianji\</code> 下，并重命名为 <code>bfg.jar</code> 以便操作。</li>
+</ul>
+<blockquote>
+<p>（注：最新版的<code>bfg.jar</code> 是用 <strong>Java 11</strong> (Version 55) 编译的，需要将当前系统默认 jdk 版本升级到 <strong>11</strong> 及以上）</p>
+</blockquote>
+</li>
+<li><p>创建替换文件</p>
+<ul>
+<li><p>在项目<strong>根目录</strong>下创建一个名为 <code>replacements.txt</code> 的文件。将你需要抹除的<strong>所有</strong>敏感值填进去，<strong>每行一个</strong>，列如：</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">***REMOVED***</span><br><span class="line">***REMOVED***</span><br><span class="line">***REMOVED***</span><br><span class="line">***REMOVED***</span><br><span class="line">***REMOVED***</span><br></pre></td></tr></table></figure></li>
+</ul>
+<blockquote>
+<p>(注：BFG 会把历史记录中所有出现的这些字符串替换成 <code>***REMOVED***</code>)</p>
+</blockquote>
+</li>
+<li><p>在根目录执行清洗命令</p>
+</li>
+</ol>
+   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 运行 BFG 进行文本替换</span></span><br><span class="line">java -jar bfg.jar --replace-text replacements.txt .</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>清理 Git 垃圾</li>
+</ol>
+   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 清理引用日志并进行垃圾回收</span></span><br><span class="line">git reflog expire --expire=now --all</span><br><span class="line">git gc --prune=now --aggressive</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li><p>强制推送</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 强制推送到远程仓库（因为历史被修改了，必须用 -f）</span></span><br><span class="line">git push github dev -f</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>(注：假设你要推送到 <code>dev</code> 分支，如果你的主分支是 <code>main</code> 或 <code>master</code>，请相应修改)</p>
+</blockquote>
+</li>
+</ol>
 
       
     </div>
@@ -322,7 +381,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="标题">
+      <meta itemprop="name" content="MeiDaiAa's Blog">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
