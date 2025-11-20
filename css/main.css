@@ -1169,7 +1169,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #623d96;
+  background: #ff548f;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1992,6 +1992,73 @@ pre .javascript .function {
   color: #0477ab;
   text-decoration: underline;
 }
+.post-body pre,
+.post-body pre > code,
+.post-body .highlight {
+/* 背景设为透明，保留左侧细条作为视觉提示，避免大面积白色块 */
+  background: transparent;
+  color: #0b0b0b;
+  font-family: Menlo, Monaco, "Courier New", monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  padding: 12px 14px;
+  border-radius: 6px;
+  overflow-x: auto;
+  -webkit-font-smoothing: antialiased;
+  tab-size: 4;
+  white-space: pre;
+  margin: 1.1em 0;
+  border-left: 3px solid rgba(57,197,187,0.12);
+  box-shadow: none;
+}
+.post-body pre code {
+  display: block;
+  background: transparent;
+  padding: 0;
+}
+.post-body code,
+.post-body kbd {
+  background: rgba(9,30,66,0.04);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.95em;
+  border: 1px solid rgba(9,30,66,0.04);
+}
+.post-body pre[data-lang]::before {
+  content: attr(data-lang);
+  display: inline-block;
+  font-size: 11px;
+  color: #fff;
+  background: rgba(0,0,0,0.5);
+  padding: 3px 8px;
+  border-radius: 3px;
+  position: relative;
+  float: right;
+  margin: -30px 8px 0 0;
+}
+@media (min-width: 1200px) {
+  .post-body pre,
+  .post-body pre > code,
+  .post-body .highlight {
+    font-size: 1.02rem;
+  }
+}
+.post-body pre::selection,
+.post-body pre > code::selection,
+.post-body .highlight::selection,
+.post-body code::selection,
+.post-body kbd::selection {
+  background: rgba(57,197,187,0.22);
+  color: #072a25;
+}
+.post-body pre::-moz-selection,
+.post-body pre > code::-moz-selection,
+.post-body .highlight::-moz-selection,
+.post-body code::-moz-selection,
+.post-body kbd::-moz-selection {
+  background: rgba(57,197,187,0.22);
+  color: #072a25;
+}
 .category-all-page .category-all-title {
   text-align: center;
 }
@@ -2318,4 +2385,121 @@ embed {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+/* ===========================================
+   NexT 全站深色主题完整增强样式（一步到位）
+   =========================================== */
+/* ====== 1. 全站文字颜色 ====== */
+body,
+.post-body,
+.post-body p,
+.post-body li,
+.post-body span {
+  color: #e5e5e5 !important; /* 柔和的浅灰白 */
+}
+/* ====== 2. 标题颜色 ====== */
+.post-title,
+.post-body h1,
+.post-body h2,
+.post-body h3,
+.post-body h4,
+.post-body h5,
+.post-body h6 {
+  color: #39c5bb !important; /* 你指定的绿色 */
+}
+/* ====== 3. 链接颜色 ====== */
+.post-body a {
+  color: #4aa3ff !important;
+  text-decoration: none;
+}
+.post-body a:hover {
+  color: #77baff !important;
+  text-decoration: underline;
+}
+/* ====== 4. 引用块 ====== */
+blockquote {
+  color: #ccc !important;
+  border-left: 4px solid #39c5bb !important;
+  background: rgba(255,255,255,0.03) !important;
+}
+/* ====== 5. 表格 ====== */
+table th,
+table td {
+  border: 1px solid #444 !important;
+}
+table tr:nth-child(odd) {
+  background: rgba(255,255,255,0.03);
+}
+table tr:nth-child(even) {
+  background: rgba(255,255,255,0.06);
+}
+table th {
+  background: #2a2a2a !important;
+  color: #fff !important;
+}
+/* ====== 6. 行内代码块（`code`） ====== */
+.post-body code {
+  background: #333 !important;
+  color: #ffdf8e !important; /* 类似 VS Code 的浅黄 */
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+/* ====== 7. 多行代码块（Highlight） ====== */
+.highlight,
+pre,
+code {
+  background: #1e1e1e !important; /* VSCode 暗色背景 */
+  color: #dcdcdc !important;
+  border-radius: 8px;
+}
+pre {
+  padding: 14px !important;
+  border: 1px solid #333 !important;
+}
+/* 行号 */
+.highlight .gutter {
+  color: #666 !important;
+}
+/* 代码块中的关键字、字符串、高亮 */
+.highlight .keyword {
+  color: #c586c0 !important;
+}
+.highlight .string {
+  color: #ce9178 !important;
+}
+.highlight .number {
+  color: #b5cea8 !important;
+}
+.highlight .comment {
+  color: #6a9955 !important;
+}
+/* ====== 8. 图片边框（可选） ====== */
+.post-body img {
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+/* ====== 9. 分割线 ====== */
+hr {
+  border: none;
+  border-top: 1px solid #444 !important;
+}
+body {
+  background: url("https://meidaia-java-web-study.oss-cn-beijing.aliyuncs.com/miku861.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+}
+.use-motion .post-block {
+  opacity: 0;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  padding: 25px;
+  background: rgba(0,0,0,0.18) none repeat scroll !important;
+  -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
+  -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
+}
+.use-motion .pagination,
+.use-motion .comments {
+  opacity: 0;
 }
