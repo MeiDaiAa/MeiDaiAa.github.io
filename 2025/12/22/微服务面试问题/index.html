@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 8.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/miku32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/miku16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":{"type":"default"}},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="关于天机学堂项目面试中会问到的问题关于项目介绍1. 介绍一下你的项目2. 你负责哪些业务，用到了哪些技术栈3. 你的项目能承受多少的QPS？测过吗？4. 你的项目有上线吗？关于开发过程1. 哪些功能开发让你觉得比较有挑战性2. 讲讲你们的点赞系统是如何设计的3. 你们项目中用到了Redis？具体使用了哪种数据结构呢？4. 为什么要使用ZSET？介绍一下ZSET5. 如果Redis宕机怎么办？如何保">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MeiDaiAa&#39;s Blog">
+<meta property="og:url" content="http://example.com/2025/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="MeiDaiAa&#39;s Blog">
+<meta property="og:description" content="关于天机学堂项目面试中会问到的问题关于项目介绍1. 介绍一下你的项目2. 你负责哪些业务，用到了哪些技术栈3. 你的项目能承受多少的QPS？测过吗？4. 你的项目有上线吗？关于开发过程1. 哪些功能开发让你觉得比较有挑战性2. 讲讲你们的点赞系统是如何设计的3. 你们项目中用到了Redis？具体使用了哪种数据结构呢？4. 为什么要使用ZSET？介绍一下ZSET5. 如果Redis宕机怎么办？如何保">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-22T07:03:41.197Z">
+<meta property="article:modified_time" content="2025-12-22T07:52:13.793Z">
+<meta property="article:author" content="MeiDaiAa">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2025/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | MeiDaiAa's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">MeiDaiAa's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://medeah-sky-take-out.oss-cn-beijing.aliyuncs.com/2025/07/07920488-9754-465c-96fb-ddeed52c9a91.png">
+      <meta itemprop="name" content="MeiDaiAa">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MeiDaiAa's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-12-22 15:03:41 / 修改时间：15:52:13" itemprop="dateCreated datePublished" datetime="2025-12-22T15:03:41+08:00">2025-12-22</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="关于天机学堂项目面试中会问到的问题"><a href="#关于天机学堂项目面试中会问到的问题" class="headerlink" title="关于天机学堂项目面试中会问到的问题"></a>关于天机学堂项目面试中会问到的问题</h1><h2 id="关于项目介绍"><a href="#关于项目介绍" class="headerlink" title="关于项目介绍"></a>关于项目介绍</h2><h3 id="1-介绍一下你的项目"><a href="#1-介绍一下你的项目" class="headerlink" title="1. 介绍一下你的项目"></a>1. 介绍一下你的项目</h3><h3 id="2-你负责哪些业务，用到了哪些技术栈"><a href="#2-你负责哪些业务，用到了哪些技术栈" class="headerlink" title="2. 你负责哪些业务，用到了哪些技术栈"></a>2. 你负责哪些业务，用到了哪些技术栈</h3><h3 id="3-你的项目能承受多少的QPS？测过吗？"><a href="#3-你的项目能承受多少的QPS？测过吗？" class="headerlink" title="3. 你的项目能承受多少的QPS？测过吗？"></a>3. 你的项目能承受多少的QPS？测过吗？</h3><h3 id="4-你的项目有上线吗？"><a href="#4-你的项目有上线吗？" class="headerlink" title="4. 你的项目有上线吗？"></a>4. 你的项目有上线吗？</h3><h2 id="关于开发过程"><a href="#关于开发过程" class="headerlink" title="关于开发过程"></a>关于开发过程</h2><h3 id="1-哪些功能开发让你觉得比较有挑战性"><a href="#1-哪些功能开发让你觉得比较有挑战性" class="headerlink" title="1. 哪些功能开发让你觉得比较有挑战性"></a>1. 哪些功能开发让你觉得比较有挑战性</h3><h3 id="2-讲讲你们的点赞系统是如何设计的"><a href="#2-讲讲你们的点赞系统是如何设计的" class="headerlink" title="2. 讲讲你们的点赞系统是如何设计的"></a>2. 讲讲你们的点赞系统是如何设计的</h3><h3 id="3-你们项目中用到了Redis？具体使用了哪种数据结构呢？"><a href="#3-你们项目中用到了Redis？具体使用了哪种数据结构呢？" class="headerlink" title="3. 你们项目中用到了Redis？具体使用了哪种数据结构呢？"></a>3. 你们项目中用到了Redis？具体使用了哪种数据结构呢？</h3><h3 id="4-为什么要使用ZSET？介绍一下ZSET"><a href="#4-为什么要使用ZSET？介绍一下ZSET" class="headerlink" title="4. 为什么要使用ZSET？介绍一下ZSET"></a>4. 为什么要使用ZSET？介绍一下ZSET</h3><h3 id="5-如果Redis宕机怎么办？如何保证数据安全？"><a href="#5-如果Redis宕机怎么办？如何保证数据安全？" class="headerlink" title="5. 如果Redis宕机怎么办？如何保证数据安全？"></a>5. 如果Redis宕机怎么办？如何保证数据安全？</h3><h3 id="6-介绍一下你们是如何设计并实现的排行榜功能"><a href="#6-介绍一下你们是如何设计并实现的排行榜功能" class="headerlink" title="6. 介绍一下你们是如何设计并实现的排行榜功能"></a>6. 介绍一下你们是如何设计并实现的排行榜功能</h3><h3 id="7-你的排行榜使用了ZSET的数据结构，如果用户量非常多怎么办？"><a href="#7-你的排行榜使用了ZSET的数据结构，如果用户量非常多怎么办？" class="headerlink" title="7. 你的排行榜使用了ZSET的数据结构，如果用户量非常多怎么办？"></a>7. 你的排行榜使用了ZSET的数据结构，如果用户量非常多怎么办？</h3><h3 id="8-是如何实现定时任务的？"><a href="#8-是如何实现定时任务的？" class="headerlink" title="8. 是如何实现定时任务的？"></a>8. 是如何实现定时任务的？</h3><h3 id="9-处理数百万的榜单数据时任务是如何分片的？"><a href="#9-处理数百万的榜单数据时任务是如何分片的？" class="headerlink" title="9. 处理数百万的榜单数据时任务是如何分片的？"></a>9. 处理数百万的榜单数据时任务是如何分片的？</h3><h3 id="10-你们是如何确保多个任务依次执行的呢？"><a href="#10-你们是如何确保多个任务依次执行的呢？" class="headerlink" title="10. 你们是如何确保多个任务依次执行的呢？"></a>10. 你们是如何确保多个任务依次执行的呢？</h3><h3 id="11-介绍一下你们的兑换码生成算法，是如何实现40亿数量的"><a href="#11-介绍一下你们的兑换码生成算法，是如何实现40亿数量的" class="headerlink" title="11. 介绍一下你们的兑换码生成算法，是如何实现40亿数量的"></a>11. 介绍一下你们的兑换码生成算法，是如何实现40亿数量的</h3><h3 id="12-你在项目中哪些地方用到过线程池？介绍一下常用参数"><a href="#12-你在项目中哪些地方用到过线程池？介绍一下常用参数" class="headerlink" title="12. 你在项目中哪些地方用到过线程池？介绍一下常用参数"></a>12. 你在项目中哪些地方用到过线程池？介绍一下常用参数</h3><h3 id="13-你的线程池参数是怎么设置的？是随便设置的吗？"><a href="#13-你的线程池参数是怎么设置的？是随便设置的吗？" class="headerlink" title="13. 你的线程池参数是怎么设置的？是随便设置的吗？"></a>13. 你的线程池参数是怎么设置的？是随便设置的吗？</h3><h3 id="14-在开发中碰到过什么疑难问题，最后是怎么解决的？"><a href="#14-在开发中碰到过什么疑难问题，最后是怎么解决的？" class="headerlink" title="14. 在开发中碰到过什么疑难问题，最后是怎么解决的？"></a>14. 在开发中碰到过什么疑难问题，最后是怎么解决的？</h3><h3 id="15-微服务业务中是如何解决超卖问题的"><a href="#15-微服务业务中是如何解决超卖问题的" class="headerlink" title="15. 微服务业务中是如何解决超卖问题的"></a>15. 微服务业务中是如何解决超卖问题的</h3><h3 id="16-使用什么实现的分布式锁？如何封装的？"><a href="#16-使用什么实现的分布式锁？如何封装的？" class="headerlink" title="16. 使用什么实现的分布式锁？如何封装的？"></a>16. 使用什么实现的分布式锁？如何封装的？</h3><h3 id="17-加锁以后性能受到影响，有什么好的办法吗？"><a href="#17-加锁以后性能受到影响，有什么好的办法吗？" class="headerlink" title="17. 加锁以后性能受到影响，有什么好的办法吗？"></a>17. 加锁以后性能受到影响，有什么好的办法吗？</h3><h3 id="18-介绍一下你业务中优惠券是如何使用的"><a href="#18-介绍一下你业务中优惠券是如何使用的" class="headerlink" title="18. 介绍一下你业务中优惠券是如何使用的"></a>18. 介绍一下你业务中优惠券是如何使用的</h3>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/11/23/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B8%AD%E5%AD%A6%E4%B9%A0%E5%88%B0%E7%9A%84/" rel="prev" title="微服务中学习到的">
+      <i class="fa fa-chevron-left"></i> 微服务中学习到的
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E5%A4%A9%E6%9C%BA%E5%AD%A6%E5%A0%82%E9%A1%B9%E7%9B%AE%E9%9D%A2%E8%AF%95%E4%B8%AD%E4%BC%9A%E9%97%AE%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">关于天机学堂项目面试中会问到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.1.</span> <span class="nav-text">关于项目介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E4%BD%A0%E7%9A%84%E9%A1%B9%E7%9B%AE"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 介绍一下你的项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BD%A0%E8%B4%9F%E8%B4%A3%E5%93%AA%E4%BA%9B%E4%B8%9A%E5%8A%A1%EF%BC%8C%E7%94%A8%E5%88%B0%E4%BA%86%E5%93%AA%E4%BA%9B%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 你负责哪些业务，用到了哪些技术栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%BD%A0%E7%9A%84%E9%A1%B9%E7%9B%AE%E8%83%BD%E6%89%BF%E5%8F%97%E5%A4%9A%E5%B0%91%E7%9A%84QPS%EF%BC%9F%E6%B5%8B%E8%BF%87%E5%90%97%EF%BC%9F"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. 你的项目能承受多少的QPS？测过吗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E4%BD%A0%E7%9A%84%E9%A1%B9%E7%9B%AE%E6%9C%89%E4%B8%8A%E7%BA%BF%E5%90%97%EF%BC%9F"><span class="nav-number">1.1.4.</span> <span class="nav-text">4. 你的项目有上线吗？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">关于开发过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%93%AA%E4%BA%9B%E5%8A%9F%E8%83%BD%E5%BC%80%E5%8F%91%E8%AE%A9%E4%BD%A0%E8%A7%89%E5%BE%97%E6%AF%94%E8%BE%83%E6%9C%89%E6%8C%91%E6%88%98%E6%80%A7"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 哪些功能开发让你觉得比较有挑战性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%AE%B2%E8%AE%B2%E4%BD%A0%E4%BB%AC%E7%9A%84%E7%82%B9%E8%B5%9E%E7%B3%BB%E7%BB%9F%E6%98%AF%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E7%9A%84"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 讲讲你们的点赞系统是如何设计的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%BD%A0%E4%BB%AC%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%94%A8%E5%88%B0%E4%BA%86Redis%EF%BC%9F%E5%85%B7%E4%BD%93%E4%BD%BF%E7%94%A8%E4%BA%86%E5%93%AA%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%91%A2%EF%BC%9F"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. 你们项目中用到了Redis？具体使用了哪种数据结构呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8ZSET%EF%BC%9F%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BZSET"><span class="nav-number">1.2.4.</span> <span class="nav-text">4. 为什么要使用ZSET？介绍一下ZSET</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%A6%82%E6%9E%9CRedis%E5%AE%95%E6%9C%BA%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%EF%BC%9F"><span class="nav-number">1.2.5.</span> <span class="nav-text">5. 如果Redis宕机怎么办？如何保证数据安全？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E4%BD%A0%E4%BB%AC%E6%98%AF%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E5%B9%B6%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%8E%92%E8%A1%8C%E6%A6%9C%E5%8A%9F%E8%83%BD"><span class="nav-number">1.2.6.</span> <span class="nav-text">6. 介绍一下你们是如何设计并实现的排行榜功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E4%BD%A0%E7%9A%84%E6%8E%92%E8%A1%8C%E6%A6%9C%E4%BD%BF%E7%94%A8%E4%BA%86ZSET%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%8C%E5%A6%82%E6%9E%9C%E7%94%A8%E6%88%B7%E9%87%8F%E9%9D%9E%E5%B8%B8%E5%A4%9A%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="nav-number">1.2.7.</span> <span class="nav-text">7. 你的排行榜使用了ZSET的数据结构，如果用户量非常多怎么办？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E7%9A%84%EF%BC%9F"><span class="nav-number">1.2.8.</span> <span class="nav-text">8. 是如何实现定时任务的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-%E5%A4%84%E7%90%86%E6%95%B0%E7%99%BE%E4%B8%87%E7%9A%84%E6%A6%9C%E5%8D%95%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BB%BB%E5%8A%A1%E6%98%AF%E5%A6%82%E4%BD%95%E5%88%86%E7%89%87%E7%9A%84%EF%BC%9F"><span class="nav-number">1.2.9.</span> <span class="nav-text">9. 处理数百万的榜单数据时任务是如何分片的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-%E4%BD%A0%E4%BB%AC%E6%98%AF%E5%A6%82%E4%BD%95%E7%A1%AE%E4%BF%9D%E5%A4%9A%E4%B8%AA%E4%BB%BB%E5%8A%A1%E4%BE%9D%E6%AC%A1%E6%89%A7%E8%A1%8C%E7%9A%84%E5%91%A2%EF%BC%9F"><span class="nav-number">1.2.10.</span> <span class="nav-text">10. 你们是如何确保多个任务依次执行的呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E4%BD%A0%E4%BB%AC%E7%9A%84%E5%85%91%E6%8D%A2%E7%A0%81%E7%94%9F%E6%88%90%E7%AE%97%E6%B3%95%EF%BC%8C%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B040%E4%BA%BF%E6%95%B0%E9%87%8F%E7%9A%84"><span class="nav-number">1.2.11.</span> <span class="nav-text">11. 介绍一下你们的兑换码生成算法，是如何实现40亿数量的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-%E4%BD%A0%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%93%AA%E4%BA%9B%E5%9C%B0%E6%96%B9%E7%94%A8%E5%88%B0%E8%BF%87%E7%BA%BF%E7%A8%8B%E6%B1%A0%EF%BC%9F%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E5%B8%B8%E7%94%A8%E5%8F%82%E6%95%B0"><span class="nav-number">1.2.12.</span> <span class="nav-text">12. 你在项目中哪些地方用到过线程池？介绍一下常用参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-%E4%BD%A0%E7%9A%84%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%8F%82%E6%95%B0%E6%98%AF%E6%80%8E%E4%B9%88%E8%AE%BE%E7%BD%AE%E7%9A%84%EF%BC%9F%E6%98%AF%E9%9A%8F%E4%BE%BF%E8%AE%BE%E7%BD%AE%E7%9A%84%E5%90%97%EF%BC%9F"><span class="nav-number">1.2.13.</span> <span class="nav-text">13. 你的线程池参数是怎么设置的？是随便设置的吗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-%E5%9C%A8%E5%BC%80%E5%8F%91%E4%B8%AD%E7%A2%B0%E5%88%B0%E8%BF%87%E4%BB%80%E4%B9%88%E7%96%91%E9%9A%BE%E9%97%AE%E9%A2%98%EF%BC%8C%E6%9C%80%E5%90%8E%E6%98%AF%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E7%9A%84%EF%BC%9F"><span class="nav-number">1.2.14.</span> <span class="nav-text">14. 在开发中碰到过什么疑难问题，最后是怎么解决的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B8%9A%E5%8A%A1%E4%B8%AD%E6%98%AF%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%B6%85%E5%8D%96%E9%97%AE%E9%A2%98%E7%9A%84"><span class="nav-number">1.2.15.</span> <span class="nav-text">15. 微服务业务中是如何解决超卖问题的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-%E4%BD%BF%E7%94%A8%E4%BB%80%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%EF%BC%9F%E5%A6%82%E4%BD%95%E5%B0%81%E8%A3%85%E7%9A%84%EF%BC%9F"><span class="nav-number">1.2.16.</span> <span class="nav-text">16. 使用什么实现的分布式锁？如何封装的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-%E5%8A%A0%E9%94%81%E4%BB%A5%E5%90%8E%E6%80%A7%E8%83%BD%E5%8F%97%E5%88%B0%E5%BD%B1%E5%93%8D%EF%BC%8C%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E7%9A%84%E5%8A%9E%E6%B3%95%E5%90%97%EF%BC%9F"><span class="nav-number">1.2.17.</span> <span class="nav-text">17. 加锁以后性能受到影响，有什么好的办法吗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E4%BD%A0%E4%B8%9A%E5%8A%A1%E4%B8%AD%E4%BC%98%E6%83%A0%E5%88%B8%E6%98%AF%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E7%9A%84"><span class="nav-number">1.2.18.</span> <span class="nav-text">18. 介绍一下你业务中优惠券是如何使用的</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="MeiDaiAa"
+      src="https://medeah-sky-take-out.oss-cn-beijing.aliyuncs.com/2025/07/07920488-9754-465c-96fb-ddeed52c9a91.png">
+  <p class="site-author-name" itemprop="name">MeiDaiAa</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2025-11 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MeiDaiAa</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='57,197,187' opacity='0.7' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
